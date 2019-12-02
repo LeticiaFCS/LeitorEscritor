@@ -8,7 +8,7 @@ Trabalho de implementação realizado para a disciplina Computação Concorrente
 #Para executar
 • rm -rf leituras/* 
   (comando opcional para garantir que a pasta que registra as leituras está vazia)
-• Chamar o comando "./executavel/LeitorEscritor.out" no terminal
+• Chamar o comando "./executavel/LeitorEscritor.out [número de threads leitoras] [número de threads escritoras] [número de leituras] [número de escritas] [nome do arquivo de log]" no terminal
 • Digitar os dados que o programa pedir
 
 #Saída
