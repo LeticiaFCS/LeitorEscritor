@@ -45,7 +45,7 @@ void sai_e(int id);
 void * ler(void *threadid);
 void * escrever(void *threadid);
 
-int main(int agrc, char *argv[]){
+int main(int argc, char *argv[]){
 	double tempo_ini, tempo_fim;
 	GET_TIME(tempo_ini);
 		
@@ -54,21 +54,18 @@ int main(int agrc, char *argv[]){
 	pthread_t *tidl, *tide;
 	int *idl, *ide;
 	
+	if(argc<6){
+		printf("Número de argumentos inválido!!!\n");
+		printf("Numero de threads leitoras | Numero de threads escritoras | Numero de leituras | Numero de escritas | Nome do arquivo de log(.py)\n");	
+		exit(-1);
+	}
 	
-	printf("Numero de threads leitoras: " );
-	scanf("%d", &num_threads_l);
-
-	printf("Numero de threads escritoras: ");
-	scanf("%d", &num_threads_e);
-
-	printf("Numero de leituras: ");
-	scanf("%d", &num_l);
-
-	printf("Numero de escritas: ");
-	scanf("%d", &num_e);
 	
-	printf("Nome do arquivo de log(.py): ");
-	scanf("%s",arquivolog);
+	num_threads_l=atoi(argv[1]);
+	num_threads_e=atoi(argv[2]);
+	num_l=atoi(argv[3]);
+	num_e=atoi(argv[4]);	
+	strcpy(arquivolog,argv[5]);
 	
 	if(!valida_arquivo_log()){
 		printf("Nome invalido para arquivo de log(usar extensao .py)\n"); exit(-1);
